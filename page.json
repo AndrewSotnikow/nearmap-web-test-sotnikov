@@ -1,0 +1,52 @@
+{
+  "story": {
+    "id": 1001,
+    "name": "Ground Truth",
+    "slug": "ground-truth",
+    "content": {
+      "component": "page",
+      "body": [
+        {
+          "_uid": "a1b2c3d4",
+          "component": "section_title",
+          "title": "Ground Truth",
+          "subtitle": "A blog by Nearmap",
+          "description": "From imagery, to insights, to answers. Explore the latest posts and new perspectives emerging in the world of location intelligence."
+        },
+        {
+          "_uid": "e5f6g7h8",
+          "component": "blog_list",
+          "title": "Latest from Nearmap",
+          "items": [
+            {
+              "_uid": "i9j0k1l2",
+              "thumbnail_url": "https://placehold.co/400x200/0057FF/FFFFFF?text=Post+1",
+              "thumbnail_alt": "Aerial imagery over a city",
+              "title": "How AI is transforming roof inspections",
+              "excerpt": "Machine learning models can now detect damage with sub-centimeter precision.",
+              "date": "2024-03-15",
+              "url": "/ground-truth/blog/ai-roof-inspections"
+            },
+            {
+              "_uid": "m3n4o5p6",
+              "thumbnail_url": "https://placehold.co/400x200/0057FF/FFFFFF?text=Post+2",
+              "thumbnail_alt": "3D model of a building",
+              "title": "Why oblique imagery matters for insurance",
+              "date": "2024-02-28",
+              "url": "/ground-truth/blog/oblique-imagery-insurance"
+            },
+            {
+              "_uid": "q7r8s9t0",
+              "thumbnail_url": "https://placehold.co/400x200/0057FF/FFFFFF?text=Post+3",
+              "thumbnail_alt": "Satellite imagery comparison",
+              "title": "Sub-5cm resolution: what it means in practice",
+              "excerpt": "The detail that separates Nearmap imagery from standard satellite sources.",
+              "date": null,
+              "url": "/ground-truth/blog/sub-5cm-resolution"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
