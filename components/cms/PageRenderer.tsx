@@ -7,7 +7,7 @@ type PageRendererProps = {
 
 export function PageRenderer({ page }: PageRendererProps) {
   return (
-    <main>
+    <main className="page-shell">
       {page.content.body.map((block) => (
         <BlockRenderer key={block._uid} block={block} />
       ))}

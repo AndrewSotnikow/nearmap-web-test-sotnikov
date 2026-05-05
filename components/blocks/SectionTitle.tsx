@@ -6,10 +6,10 @@ type SectionTitleProps = {
 
 export function SectionTitle({ block }: SectionTitleProps) {
   return (
-    <header>
-      <p>{block.subtitle}</p>
-      <h1>{block.title}</h1>
-      <p>{block.description}</p>
+    <header className="section-title">
+      <p className="section-title__eyebrow">{block.subtitle}</p>
+      <h1 className="section-title__heading">{block.title}</h1>
+      <p className="section-title__description">{block.description}</p>
     </header>
   )
 }
