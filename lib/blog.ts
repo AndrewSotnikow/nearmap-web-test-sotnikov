@@ -12,6 +12,20 @@ export function filterPostsByTitle(posts: BlogPost[], query: string): BlogPost[]
   )
 }
 
+export function getVisibleBlogPosts(
+  posts: BlogPost[],
+  query: string,
+  showAll: boolean
+): BlogPost[] {
+  const filteredPosts = filterPostsByTitle(posts, query)
+
+  if (query.trim() || showAll) {
+    return filteredPosts
+  }
+
+  return filteredPosts.slice(0, 1)
+}
+
 export function formatPostDate(date: string | null): string | null {
   if (!date) {
     return null

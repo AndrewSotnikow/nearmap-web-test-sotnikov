@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 import { BlogCard } from './BlogCard'
-import { filterPostsByTitle } from '../../lib/blog'
+import { getVisibleBlogPosts } from '../../lib/blog'
 import type { BlogListBlock } from '../../lib/cms/types'
 
 type BlogListProps = {
@@ -12,7 +12,16 @@ type BlogListProps = {
 export function BlogList({ block }: BlogListProps) {
   const [searchInput, setSearchInput] = useState('')
   const [submittedSearch, setSubmittedSearch] = useState('')
-  const visiblePosts = filterPostsByTitle(block.items, submittedSearch)
+  const [showAllPosts, setShowAllPosts] = useState(false)
+  const visiblePosts = getVisibleBlogPosts(
+    block.items,
+    submittedSearch,
+    showAllPosts
+  )
+  const isSearching = Boolean(submittedSearch.trim())
+  const remainingPostCount = block.items.length - visiblePosts.length
+  const shouldShowLoadMore =
+    !isSearching && !showAllPosts && remainingPostCount > 0
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -50,6 +59,18 @@ export function BlogList({ block }: BlogListProps) {
         {visiblePosts.map((post) => (
           <BlogCard key={post._uid} post={post} />
         ))}
+        {shouldShowLoadMore ? (
+          <div className="blog-list__load-more">
+            <p>
+              + {remainingPostCount} more{' '}
+              {remainingPostCount === 1 ? 'post' : 'posts'} from{' '}
+              <code>page.json</code>
+            </p>
+            <button type="button" onClick={() => setShowAllPosts(true)}>
+              Load posts
+            </button>
+          </div>
+        ) : null}
       </div>
       {visiblePosts.length === 0 ? (
         <p className="blog-list__empty">No posts match your search.</p>

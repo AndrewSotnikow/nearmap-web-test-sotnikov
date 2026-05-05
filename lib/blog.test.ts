@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { filterPostsByTitle, formatPostDate } from './blog'
+import { filterPostsByTitle, formatPostDate, getVisibleBlogPosts } from './blog'
 import type { BlogPost } from './cms/types'
 
 const posts: BlogPost[] = [
@@ -34,6 +34,20 @@ describe('filterPostsByTitle', () => {
 
   it('returns no posts when titles do not match', () => {
     expect(filterPostsByTitle(posts, 'zoning')).toEqual([])
+  })
+})
+
+describe('getVisibleBlogPosts', () => {
+  it('shows the first post before posts are loaded', () => {
+    expect(getVisibleBlogPosts(posts, '', false)).toEqual([posts[0]])
+  })
+
+  it('shows every post after posts are loaded', () => {
+    expect(getVisibleBlogPosts(posts, '', true)).toEqual(posts)
+  })
+
+  it('searches across every post regardless of loaded state', () => {
+    expect(getVisibleBlogPosts(posts, 'insurance', false)).toEqual([posts[1]])
   })
 })
 
