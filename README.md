@@ -56,7 +56,7 @@ npm run build
 
 ## Implementation notes
 
-The page route is slug-based and renders blocks from `page.json` through a small component registry. Adding another CMS page should only require adding page data with a unique slug and supported block components.
+The page route is slug-based and renders blocks from CMS JSON through a small component registry. The required `page.json` file is loaded directly, and additional page JSON files can be added under `content/pages/` with unique slugs and supported block components.
 
 ## Submission instructions
 
