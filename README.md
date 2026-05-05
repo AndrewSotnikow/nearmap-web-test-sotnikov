@@ -35,6 +35,29 @@ If you have any further instructions, please include them in the project's `READ
 
 ---
 
+## Local development
+
+Install dependencies and start the Next.js dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000/ground-truth](http://localhost:3000/ground-truth) to view the CMS-rendered page.
+
+Useful checks:
+
+```bash
+npm run typecheck
+npm run test
+npm run build
+```
+
+## Implementation notes
+
+The page route is slug-based and renders blocks from `page.json` through a small component registry. Adding another CMS page should only require adding page data with a unique slug and supported block components.
+
 ## Submission instructions
 
 - DO NOT fork this repository or create pull requests on it as we don't want other candidates to see your solution.
